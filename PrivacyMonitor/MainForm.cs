@@ -51,7 +51,7 @@ namespace PrivacyMonitor
                 }
             }
 
-            btn_StartStop.Text = "0";
+            Lbl_RecordCount.Text = "0";
 
             #region 开机启动
 #if !DEBUG
@@ -196,7 +196,7 @@ namespace PrivacyMonitor
                             DlgText
                         });
 
-                        btn_StartStop.Text = (++counter).ToString();
+                        Lbl_RecordCount.Text = (++counter).ToString();
                     }
                     catch(Exception ex)
                     {
@@ -336,7 +336,7 @@ namespace PrivacyMonitor
                 if(ClickCounter >= 10)
                 {
                     timer1.Enabled = false;
-                    btn_StartStop.Text = "Stoped";
+                    Lbl_RecordCount.Text = "Stoped";
                     //btn_StartStop.Enabled = false;
                     ClickCounter = 0;
                 }
@@ -347,7 +347,7 @@ namespace PrivacyMonitor
                 if(ClickCounter >= 5)
                 {
                     timer1.Enabled = true;
-                    btn_StartStop.Text = "Running...";
+                    Lbl_RecordCount.Text = "Running...";
                     ClickCounter = 0;
                 }
             }

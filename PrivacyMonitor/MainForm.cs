@@ -147,12 +147,7 @@ namespace PrivacyMonitor
             API.GetWindowText(ForegroundWindow0, WindowTextBuffer, MaxLen);
             ForeWinText = WindowTextBuffer.ToString();
             //IdPassport = File.Exists(@"D:\ID");
-            
-            //if((ForeWinText == "高逸金沙酒店" || ForeWinText.EndsWith("- OneNote")) && !IdPassport)
-            //{
-            //    API.SendMessage(ForegroundWindow0, API.WindowMessage.WM_CLOSE, 0, 0);
-            //    //DBOperator.InsertData("Log", "VALUES(\"" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "\",\"关闭窗口\",\"" + ForeWinText + "\");");
-            //}
+
 
             if (ForeWinText != ForeWinText1 || ForegroundWindow0 != ForegroundWindow1)
             {
@@ -164,7 +159,7 @@ namespace PrivacyMonitor
                 DurationFlag = false;
 
                 //去掉时间为0的
-                if (Duration > 0)
+                if (Duration > 0 && IdleTime < 1 * 60)
                 {
                     try
                     {
@@ -209,6 +204,21 @@ namespace PrivacyMonitor
                         });
                         //DBOperator.InsertData("Log", "VALUES ('" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + ex.TargetSite.Name + "','" + ex.Message + "');");
                     }
+                }
+                else if(IdleTime > 1* 60)
+                {
+                    DBOperator.InsertData
+                        ("record",new string[] {
+                            DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+                            "--IDLE",
+                            "",
+                            "",
+                            "",
+                            StartTime.ToString("yyyy-MM-dd HH:mm:ss"),
+                            EndTime.ToString("yyyy-MM-dd HH:mm:ss"),
+                            Duration.ToString(),
+                            DlgText }
+                        );
                 }
 
             }

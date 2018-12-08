@@ -104,13 +104,14 @@
             this.Lbl_RecordCount.Name = "Lbl_RecordCount";
             this.Lbl_RecordCount.Size = new System.Drawing.Size(518, 99);
             this.Lbl_RecordCount.TabIndex = 2;
+            this.Lbl_RecordCount.Text = "0";
             this.Lbl_RecordCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(539, 205);
             this.Controls.Add(this.Lbl_RecordCount);
             this.Controls.Add(this.panel1);
